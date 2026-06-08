@@ -295,17 +295,24 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
   content:'';position:absolute;top:2.2rem;left:calc(12.5% + 1rem);right:calc(12.5% + 1rem);
   height:1px;background:rgba(255,255,255,0.06);
 }
-.proc-step{padding:0 2rem;position:relative;}
+.proc-step{padding:0 2rem;position:relative;cursor:default;}
 .proc-step-num{
-  width:44px;height:44px;
+  width:48px;height:48px;
+  border-radius:50%;
   border:1px solid var(--orange-line);
   display:flex;align-items:center;justify-content:center;
   font-family:'Barlow Condensed',sans-serif;
   font-size:1rem;font-weight:800;color:var(--orange);letter-spacing:0.05em;
   margin-bottom:1.8rem;background:var(--black);
   position:relative;z-index:1;
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
 }
-.proc-step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);margin-bottom:0.7rem;}
+.proc-step:hover .proc-step-num{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:var(--black);
+}
+.proc-step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);margin-bottom:0.7rem;transition:color 0.3s;}
 .proc-step-desc{font-size:0.83rem;line-height:1.75;color:var(--text-muted-light);}
 
 /* ── GALLERY ROW (white section) ── */
@@ -345,11 +352,8 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 .testi-stars{display:flex;gap:3px;margin-bottom:1.5rem;}
 .testi-star{color:var(--orange);font-size:0.9rem;}
 .testi-text{font-size:0.93rem;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:1.8rem;font-style:italic;}
-.testi-author{display:flex;align-items:center;gap:1rem;}
-.testi-avatar{
-  width:38px;height:38px;border-radius:50%;
-  background:var(--gray-photo-dark);flex-shrink:0;
-}
+.testi-author{display:flex;flex-direction:column;align-items:flex-start;gap:0.2rem;}
+.testi-avatar{display:none;}
 .testi-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.06em;}
 .testi-title{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted-light);}
 
@@ -359,12 +363,12 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
   background:var(--white);padding:7rem 5rem;
   display:flex;flex-direction:column;justify-content:center;
 }
-.contact-info .sec-label{color:var(--orange);}
-.contact-info h2{margin-bottom:1.5rem;}
-.contact-body{font-size:0.97rem;line-height:1.8;color:#555;max-width:380px;margin-bottom:3rem;}
+.contact-info .sec-label{color:var(--black);}
+.contact-info h2{margin-bottom:1.5rem;color:var(--black);}
+.contact-body{font-size:0.97rem;line-height:1.8;color:var(--black);max-width:380px;margin-bottom:3rem;}
 .c-detail{margin-bottom:2rem;}
-.c-detail-label{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#aaa;display:block;margin-bottom:0.35rem;font-weight:600;}
-.c-detail-val{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);letter-spacing:0.02em;}
+.c-detail-label{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--black);display:block;margin-bottom:0.35rem;font-weight:600;}
+.c-detail-val{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;color:var(--black);letter-spacing:0.02em;}
 .c-socials{display:flex;gap:1rem;margin-top:1rem;}
 .c-social-icon{
   width:38px;height:38px;border:1px solid var(--border-light);
@@ -372,37 +376,38 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
   transition:border-color 0.25s,background 0.25s;
 }
 .c-social-icon:hover{border-color:var(--orange);background:var(--orange-dim);}
-.c-social-icon svg{width:16px;height:16px;stroke:var(--text-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.25s;}
+.c-social-icon svg{width:16px;height:16px;stroke:var(--black);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.25s;}
 .c-social-icon:hover svg{stroke:var(--orange);}
 
-.contact-form{background:var(--dark-section);padding:7rem 5rem;display:flex;flex-direction:column;justify-content:center;}
+.contact-form{background:var(--orange);padding:7rem 5rem;display:flex;flex-direction:column;justify-content:center;}
 .form-group{margin-bottom:1.8rem;}
-.form-group label{display:block;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.8rem;font-weight:600;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.form-group label{display:block;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-bottom:0.8rem;font-weight:600;}
 .form-group input,
 .form-group textarea,
 .form-group select{
   width:100%;background:transparent;
-  border:none;border-bottom:1px solid rgba(255,255,255,0.1);
-  padding:0.75rem 0;color:var(--white);
+  border:none;border-bottom:1px solid rgba(0,0,0,0.25);
+  padding:0.75rem 0;color:var(--black);
   font-family:'Barlow',sans-serif;font-size:0.95rem;
   outline:none;transition:border-color 0.3s;
   -webkit-appearance:none;
 }
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.18);}
-.form-group input:focus,.form-group textarea:focus{border-bottom-color:var(--orange);}
-.form-group select{color:rgba(255,255,255,0.35);}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(0,0,0,0.35);}
+.form-group input:focus,.form-group textarea:focus{border-bottom-color:var(--black);}
+.form-group select{color:rgba(0,0,0,0.55);}
+.form-group select option{background:var(--white);color:var(--black);}
 .form-group textarea{resize:none;height:90px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 .form-submit{
   margin-top:0.5rem;padding:1.1rem 3rem;
-  background:var(--orange);color:var(--black);
+  background:var(--black);color:var(--white);
   border:none;
   font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;
   letter-spacing:0.2em;text-transform:uppercase;font-weight:700;
   cursor:pointer;transition:background 0.25s;
   align-self:flex-start;
 }
-.form-submit:hover{background:#e59510;}
+.form-submit:hover{background:#222;}
 
 /* ── CTA BAND ── */
 .cta-band{
@@ -584,19 +589,19 @@ footer{
 <!-- ── STATS BAND (orange) ── -->
 <div class="stats-band">
   <div class="stat-item">
-    <span class="stat-num">500+</span>
+    <span class="stat-num" data-target="500" data-suffix="+">0</span>
     <span class="stat-label">Vehicles Wrapped</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">10+</span>
+    <span class="stat-num" data-target="10" data-suffix="+">0</span>
     <span class="stat-label">Years Experience</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">100%</span>
+    <span class="stat-num" data-target="100" data-suffix="%">0</span>
     <span class="stat-label">Satisfaction Rate</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">48hr</span>
+    <span class="stat-num" data-target="48" data-suffix="hr">0</span>
     <span class="stat-label">Avg Turnaround</span>
   </div>
 </div>
@@ -615,9 +620,6 @@ footer{
     </div>
     <div class="svc-grid">
       <div class="svc-card reveal">
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M5 7V5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>
-        </div>
         <div class="svc-name">Full Vehicle Wraps</div>
         <p class="svc-desc">Complete bumper-to-bumper wraps using premium cast vinyl. Color changes, custom designs, or full brand livery — done right.</p>
         <div class="svc-tags">
@@ -627,9 +629,6 @@ footer{
         </div>
       </div>
       <div class="svc-card reveal reveal-delay-1">
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
         <div class="svc-name">Fleet Graphics</div>
         <p class="svc-desc">Consistent, high-impact branding across your entire fleet. We handle the design, cutting, and installation at scale — no detail missed.</p>
         <div class="svc-tags">
@@ -639,9 +638,6 @@ footer{
         </div>
       </div>
       <div class="svc-card reveal reveal-delay-2">
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
         <div class="svc-name">Partial Wraps</div>
         <p class="svc-desc">Maximum visual impact, budget-friendly approach. Strategic partial wraps that punch above their weight for brand visibility.</p>
         <div class="svc-tags">
@@ -651,9 +647,6 @@ footer{
         </div>
       </div>
       <div class="svc-card reveal">
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
         <div class="svc-name">Custom Design</div>
         <p class="svc-desc">No idea yet? Our in-house design team takes your vision from sketch to installation-ready file — original, impactful, and built for vinyl.</p>
         <div class="svc-tags">
@@ -663,9 +656,6 @@ footer{
         </div>
       </div>
       <div class="svc-card reveal reveal-delay-1">
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
         <div class="svc-name">Window Graphics</div>
         <p class="svc-desc">Perforated window films and storefront graphics that maintain visibility from inside while displaying bold imagery on the outside.</p>
         <div class="svc-tags">
@@ -675,9 +665,6 @@ footer{
         </div>
       </div>
       <div class="svc-card reveal reveal-delay-2">
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
-        </div>
         <div class="svc-name">Color Change Wraps</div>
         <p class="svc-desc">Reinvent your vehicle with a full color transformation — matte, gloss, satin, chrome, or color-shift. Protects your factory paint underneath.</p>
         <div class="svc-tags">
@@ -870,33 +857,24 @@ footer{
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"Absolutely blown away by the quality. My contractor van looks like a million bucks — we've gotten calls directly from people who saw it on the road."</p>
         <div class="testi-author">
-          <div class="testi-avatar"></div>
-          <div>
-            <div class="testi-name">Carlos M.</div>
-            <div class="testi-title">Business Owner</div>
-          </div>
+          <div class="testi-name">Carlos M.</div>
+          <div class="testi-title">Business Owner</div>
         </div>
       </div>
       <div class="testi-card reveal reveal-delay-1">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"The design team nailed exactly what I had in my head — and the installation was flawless. Every edge, every curve, perfect. This is the shop."</p>
         <div class="testi-author">
-          <div class="testi-avatar"></div>
-          <div>
-            <div class="testi-name">Jordan T.</div>
-            <div class="testi-title">Car Enthusiast</div>
-          </div>
+          <div class="testi-name">Jordan T.</div>
+          <div class="testi-title">Car Enthusiast</div>
         </div>
       </div>
       <div class="testi-card reveal reveal-delay-2">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"We wrapped our entire 12-van fleet and the consistency is incredible. Deadlines were met, communication was great. RH is our go-to from now on."</p>
         <div class="testi-author">
-          <div class="testi-avatar"></div>
-          <div>
-            <div class="testi-name">Maria S.</div>
-            <div class="testi-title">Fleet Manager</div>
-          </div>
+          <div class="testi-name">Maria S.</div>
+          <div class="testi-title">Fleet Manager</div>
         </div>
       </div>
     </div>
@@ -907,7 +885,7 @@ footer{
 <section class="contact" id="contact">
   <div class="contact-info">
     <span class="sec-label">Get In Touch</span>
-    <h2 class="sec-title on-light reveal">Ready to <em>Stand Out</em>?</h2>
+    <h2 class="sec-title on-light reveal">Ready to <em>Stand Out?</em></h2>
     <p class="contact-body reveal reveal-delay-1">Tell us about your vehicle and what you're going for. We'll get back to you with a free design consultation and quote — usually within 24 hours.</p>
     <div class="reveal reveal-delay-2">
       <div class="c-detail">
@@ -964,8 +942,8 @@ footer{
       <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
     </form>
     <div id="formSuccess" style="display:none;padding:2rem 0;">
-      <div style="font-size:0.65rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);margin-bottom:0.8rem;">Message Sent</div>
-      <div style="font-size:1.5rem;font-weight:700;color:var(--white);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.04em;">We'll be in touch within 24 hours.</div>
+      <div style="font-size:0.65rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--black);margin-bottom:0.8rem;">Message Sent</div>
+      <div style="font-size:1.5rem;font-weight:700;color:var(--black);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.04em;">We'll be in touch within 24 hours.</div>
     </div>
   </div>
 </section>
@@ -1102,6 +1080,42 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
   });
 });
+
+// ── STAT COUNTERS ──
+(function(){
+  const statEls = document.querySelectorAll('.stat-num[data-target]');
+  let animated  = false;
+
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+
+  function animateCounters(){
+    if(animated) return;
+    animated = true;
+    const duration = 1800;
+    const start    = performance.now();
+
+    function tick(now){
+      const elapsed  = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased    = easeOut(progress);
+
+      statEls.forEach(el => {
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        el.textContent = Math.round(eased * target) + suffix;
+      });
+
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const band = document.querySelector('.stats-band');
+  const statsObserver = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting){ animateCounters(); statsObserver.disconnect(); }
+  }, { threshold: 0.4 });
+  statsObserver.observe(band);
+})();
 
 // ── CONTACT FORM ──
 const contactForm = document.getElementById('contactForm');
