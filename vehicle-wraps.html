@@ -59,10 +59,16 @@ nav.scrolled{padding:1rem 3.5rem;}
 }
 .nav-cta:hover{background:#c08500 !important;color:var(--black) !important;}
 
-/* nav breadcrumb context (desktop) */
+/* nav breadcrumb context (desktop) — sits below nav, flush right */
 .nav-context{
+  position:fixed;top:73px;right:0;z-index:490;
   display:flex;align-items:center;gap:0.6rem;
-  margin-left:auto;margin-right:2rem;
+  padding:0.5rem 3.5rem 0.5rem 1.5rem;
+  background:rgba(10,10,10,0.82);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border-dark);
+  border-left:1px solid var(--border-dark);
+  transition:top 0.3s;
 }
 .nav-context-back{
   display:flex;align-items:center;gap:0.3rem;
@@ -351,14 +357,6 @@ footer{
     <img class="logo-hor" src="images/logo/logo-hor.svg" alt="RH Designer Graphics" height="42">
     <img class="logo-ver" src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="58">
   </a>
-  <div class="nav-context">
-    <a href="index.html#portfolio" class="nav-context-back">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Portfolio
-    </a>
-    <span class="nav-context-sep">/</span>
-    <span class="nav-context-current">Vehicle Wraps</span>
-  </div>
   <ul class="nav-links">
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#portfolio">Portfolio</a></li>
@@ -371,6 +369,16 @@ footer{
     Portfolio
   </a>
 </nav>
+
+<!-- breadcrumb strip — below nav, flush right, desktop only -->
+<div class="nav-context" id="navContext">
+  <a href="index.html#portfolio" class="nav-context-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Portfolio
+  </a>
+  <span class="nav-context-sep">/</span>
+  <span class="nav-context-current">Vehicle Wraps</span>
+</div>
 
 <div class="mobile-menu" id="mobileMenu"></div>
 
@@ -566,7 +574,10 @@ document.querySelectorAll('a,button,.gallery-card').forEach(el=>{
 // ── NAV SCROLL ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  const scrolled = window.scrollY > 60;
+  nav.classList.toggle('scrolled', scrolled);
+  const ctx = document.getElementById('navContext');
+  if(ctx) ctx.style.top = scrolled ? '57px' : '73px';
 });
 
 // ── SCROLL REVEAL ──
