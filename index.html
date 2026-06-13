@@ -468,6 +468,7 @@ footer{
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
+  .logo img{height:36px;}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .svc-grid.col-3{grid-template-columns:1fr 1fr;}
   .svc-grid.col-2{grid-template-columns:1fr 1fr;}
@@ -483,7 +484,7 @@ footer{
 @media(max-width:900px){
   nav{padding:1.4rem 2rem;}
   nav.scrolled{padding:1rem 2rem;}
-  .logo img{height:34px;}
+  .logo img{height:30px;max-width:180px;}
   .nav-links{display:none;}
   .hamburger{display:block;}
   .mobile-menu{display:flex;}
@@ -506,6 +507,7 @@ footer{
   .cta-band{padding:5rem 2rem;}
 }
 @media(max-width:600px){
+  .logo img{height:26px;max-width:150px;}
   .cursor,.cursor-ring{display:none;}
   body{cursor:auto;}
   .hero-title{font-size:clamp(3.2rem,14vw,5rem);}
