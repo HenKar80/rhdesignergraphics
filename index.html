@@ -47,7 +47,9 @@ nav{
 }
 nav.scrolled{padding:1rem 3.5rem;}
 .logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
-.logo img{height:42px;width:auto;display:block;}
+.logo img{width:auto;display:block;}
+.logo-hor{height:42px;}
+.logo-ver{height:42px;display:none;}
 .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
 .nav-logo-img{height:40px;width:40px;border-radius:50%;object-fit:cover;}
 .nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);line-height:1.1;}
@@ -482,9 +484,11 @@ footer{
   .testi-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:900px){
-  nav{padding:1.4rem 2rem;}
-  nav.scrolled{padding:1rem 2rem;}
-  .logo img{height:64px;max-width:260px;}
+  nav{padding:1.2rem 2rem;}
+  nav.scrolled{padding:0.8rem 2rem;}
+  .logo-hor{display:none;}
+  .logo-ver{display:block;height:52px;}
+  .logo img{max-width:none;}
   .nav-links{display:none;}
   .hamburger{display:block;}
   .mobile-menu{display:flex;}
@@ -507,7 +511,7 @@ footer{
   .cta-band{padding:5rem 2rem;}
 }
 @media(max-width:600px){
-  .logo img{height:58px;max-width:240px;}
+  .logo-ver{height:46px;}
   .cursor,.cursor-ring{display:none;}
   body{cursor:auto;}
   .hero-title{font-size:clamp(3.2rem,14vw,5rem);}
@@ -542,7 +546,10 @@ footer{
 
 <!-- ── NAV ── -->
 <nav id="nav">
-  <a href="index.html" class="logo"><img src="images/logo/logo-hor.svg" alt="RH Designer Graphics" height="42"></a>
+  <a href="index.html" class="logo">
+    <img class="logo-hor" src="images/logo/logo-hor.svg" alt="RH Designer Graphics" height="42">
+    <img class="logo-ver" src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="42">
+  </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
