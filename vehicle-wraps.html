@@ -120,7 +120,7 @@ nav.scrolled{padding:1rem 3.5rem;}
   display:flex;align-items:center;gap:0.6rem;
   font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;
   color:rgba(255,255,255,0.28);font-weight:500;
-  margin-bottom:2rem;
+  margin-bottom:1.5rem;
 }
 .breadcrumb a{color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
 .breadcrumb a:hover{color:var(--orange);}
@@ -128,6 +128,13 @@ nav.scrolled{padding:1rem 3.5rem;}
 .breadcrumb-sep{color:rgba(255,255,255,0.15);}
 .page-hero-content{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;}
 .page-hero-left{}
+.page-hero-right{
+  max-width:360px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding-bottom:0.4rem;
+}
 .page-eyebrow{
   display:inline-flex;align-items:center;gap:0.7rem;
   font-size:0.65rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);
@@ -326,6 +333,7 @@ footer{
   .logo-ver{display:block;}
   .page-hero{padding:8rem 2rem 4rem;}
   .page-hero-content{flex-direction:column;align-items:flex-start;gap:2rem;}
+  .page-hero-right{max-width:100%;}
   .page-hero-desc{max-width:100%;}
   .page-hero-meta{gap:1.8rem;}
   .gallery-section{padding:4rem 2rem 5rem;}
@@ -386,17 +394,22 @@ footer{
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="breadcrumb-sep">—</span>
-      <a href="index.html#portfolio">Portfolio</a>
-      <span class="breadcrumb-sep">—</span>
-      <span>Vehicle Wraps</span>
-    </div>
     <div class="page-hero-content">
       <div class="page-hero-left">
         <div class="page-eyebrow">Full &amp; Partial Wraps</div>
         <h1 class="page-title">Vehicle<br><em>Wraps</em></h1>
+      </div>
+      <div class="page-hero-right">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">—</span>
+          <a href="index.html#portfolio">Portfolio</a>
+          <span class="breadcrumb-sep">—</span>
+          <span>Vehicle Wraps</span>
+        </div>
+        <p class="page-hero-desc">
+          From bold full wraps to subtle partial graphics — we design and install vehicle wraps that make your brand impossible to ignore. Every job is handled in-house from design to final installation.
+        </p>
       </div>
     </div>
   </div>
