@@ -217,43 +217,42 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 .view-all-link::after{content:'→';}
 
 /* photo placeholder grid */
-.port-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:3px;}
+.port-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;}
 .port-item{
   position:relative;overflow:hidden;display:block;text-decoration:none;
   background:var(--gray-photo-dark);
-  aspect-ratio:4/3;
 }
-.port-item.large{grid-row:span 1;}
-.port-item.small{display:block;}
+.port-item.large{grid-row:span 2;}
+.port-item.small{display:flex;flex-direction:column;}
 .port-item.small .port-photo-ph{flex:1;min-height:0;}
 .port-photo-ph{
-  width:100%;height:100%;
+  width:100%;height:100%;min-height:260px;
   background:#111;
   display:flex;align-items:center;justify-content:center;
   position:relative;
-  transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  overflow:hidden;
 }
-.port-item:hover .port-photo-ph{transform:scale(1.04);}
 .port-photo-ph img{
   width:100%;height:100%;
   object-fit:contain;
   display:block;
+  transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
 }
-.port-photo-ph.has-bg-img{
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
+.port-item:hover .port-photo-ph img{transform:scale(1.04);}
+.port-photo-ph.placeholder-ph{
+  background:linear-gradient(145deg,var(--gray-photo-dark),var(--gray-photo));
 }
-.port-item.large .port-photo-ph{min-height:0;}
+.port-item.large .port-photo-ph{min-height:520px;}
 .port-photo-ph::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 55%);
+  background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0) 55%);
+  pointer-events:none;
 }
 .port-photo-label{
   position:absolute;bottom:0;left:0;right:0;
-  padding:1.5rem 1.8rem;z-index:2;
+  padding:1.4rem 1.8rem;z-index:2;
 }
-.port-cat{font-size:0.6rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);font-weight:600;display:block;margin-bottom:0.4rem;}
+.port-cat{font-size:0.58rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);font-weight:600;display:block;margin-bottom:0.35rem;}
 .port-name{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;color:var(--white);letter-spacing:0.04em;}
 .port-arrow{
   position:absolute;top:1.2rem;right:1.5rem;z-index:2;
@@ -264,7 +263,7 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 }
 .port-arrow svg{width:14px;height:14px;stroke:var(--black);fill:none;stroke-width:2.5;}
 .port-item:hover .port-arrow{opacity:1;transform:translateY(0);}
-.ph-icon{color:rgba(0,0,0,0.15);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;}
+.ph-icon{color:rgba(255,255,255,0.15);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;}
 
 /* ── ABOUT (white section) ── */
 .about{display:grid;grid-template-columns:1fr 1fr;min-height:680px;}
@@ -535,9 +534,9 @@ footer{
   .svc-grid{grid-template-columns:1fr;}
   .svc-grid.col-3{grid-template-columns:1fr;}
   .svc-grid.col-2{grid-template-columns:1fr;}
-  .port-grid{grid-template-columns:1fr 1fr;}
-  .port-item.large{aspect-ratio:4/3;}
-  .port-item.small{aspect-ratio:4/3;}
+  .port-grid{grid-template-columns:1fr;}
+  .port-item.large{aspect-ratio:16/9;}
+  .port-item.small{aspect-ratio:16/9;}
   .port-item.small .port-photo-ph{min-height:0;}
   .gallery-scroll{grid-template-columns:1fr 1fr;}
   .gallery-item{aspect-ratio:1/1;}
@@ -783,7 +782,7 @@ footer{
       </a>
 
       <a class="port-item small" href="#">
-        <div class="port-photo-ph">
+        <div class="port-photo-ph placeholder-ph">
           <span class="ph-icon">Photo</span>
         </div>
         <div class="port-arrow">
@@ -796,7 +795,7 @@ footer{
       </a>
 
       <a class="port-item small" href="#">
-        <div class="port-photo-ph">
+        <div class="port-photo-ph placeholder-ph">
           <span class="ph-icon">Photo</span>
         </div>
         <div class="port-arrow">
@@ -809,7 +808,7 @@ footer{
       </a>
 
       <a class="port-item small" href="#">
-        <div class="port-photo-ph">
+        <div class="port-photo-ph placeholder-ph">
           <span class="ph-icon">Photo</span>
         </div>
         <div class="port-arrow">
@@ -822,7 +821,7 @@ footer{
       </a>
 
       <a class="port-item small" href="#">
-        <div class="port-photo-ph">
+        <div class="port-photo-ph placeholder-ph">
           <span class="ph-icon">Photo</span>
         </div>
         <div class="port-arrow">
