@@ -170,7 +170,12 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 .services-inner{max-width:1280px;margin:0 auto;}
 .svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4.5rem;align-items:end;}
 .svc-intro-text p{font-size:0.97rem;line-height:1.85;color:#555;margin-top:1.5rem;max-width:400px;}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--gray-light);}
+.svc-groups{display:flex;flex-direction:column;gap:3rem;}
+.svc-group-header{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.2rem;}
+.svc-group-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--orange);}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--white);}
+.svc-grid.col-3{grid-template-columns:repeat(3,1fr);}
+.svc-grid.col-2{grid-template-columns:repeat(2,1fr);}
 .svc-card{
   background:var(--white);
   padding:3rem 2.5rem;
@@ -342,10 +347,22 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 /* ── TESTIMONIALS (dark section) ── */
 .testimonials{padding:7rem 4rem;background:var(--dark-section);}
 .testimonials-inner{max-width:1280px;margin:0 auto;}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:3.5rem;background:rgba(255,255,255,0.05);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.5rem;}
 .testi-card{background:var(--dark-section);padding:2.8rem;}
 .testi-stars{display:flex;gap:3px;margin-bottom:1.5rem;}
-.testi-star{color:var(--orange);font-size:0.9rem;}
+.testi-star{
+  color:rgba(255,255,255,0.12);
+  font-size:0.9rem;
+  transition:color 0.3s;
+  display:inline-block;
+}
+.testi-star.lit{color:var(--orange);}
+@keyframes starPop{
+  0%{transform:scale(1);}
+  40%{transform:scale(1.5);}
+  65%{transform:scale(0.88);}
+  100%{transform:scale(1);}
+}
 .testi-text{font-size:0.93rem;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:1.8rem;font-style:italic;}
 .testi-author{display:flex;flex-direction:column;align-items:flex-start;gap:0.2rem;}
 .testi-avatar{display:none;}
@@ -450,6 +467,8 @@ footer{
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .svc-grid{grid-template-columns:1fr 1fr;}
+  .svc-grid.col-3{grid-template-columns:1fr 1fr;}
+  .svc-grid.col-2{grid-template-columns:1fr 1fr;}
   .proc-steps{grid-template-columns:1fr 1fr;gap:2.5rem;}
   .proc-steps::before{display:none;}
   .gallery-scroll{grid-template-columns:1fr 1fr;}
@@ -493,6 +512,8 @@ footer{
   .stats-band{flex-direction:column;}
   .stat-item{border-right:none;border-bottom:1px solid rgba(0,0,0,0.1);}
   .svc-grid{grid-template-columns:1fr;}
+  .svc-grid.col-3{grid-template-columns:1fr;}
+  .svc-grid.col-2{grid-template-columns:1fr;}
   .port-grid{grid-template-columns:1fr;}
   .port-item.small{aspect-ratio:4/3;}
   .port-item.small .port-photo-ph{min-height:0;}
@@ -614,61 +635,102 @@ footer{
         <p>From a single car transformation to a full commercial fleet, we deliver precision-cut, vibrant wraps that protect your vehicle and amplify your brand — every time.</p>
       </div>
     </div>
-    <div class="svc-grid">
-      <div class="svc-card reveal">
-        <div class="svc-name">Full Vehicle Wraps</div>
-        <p class="svc-desc">Complete bumper-to-bumper wraps using premium cast vinyl. Color changes, custom designs, or full brand livery — done right.</p>
-        <div class="svc-tags">
-          <span class="svc-tag featured">Most Popular</span>
-          <span class="svc-tag">Cars &amp; Trucks</span>
-          <span class="svc-tag">SUVs</span>
+    <div class="svc-groups">
+
+      <!-- Group 1: Design & Branding -->
+      <div>
+        <div class="svc-group-header reveal">
+          <span class="svc-group-title">Design &amp; Branding</span>
+        </div>
+        <div class="svc-grid col-3">
+          <div class="svc-card reveal">
+            <div class="svc-name">Brand Identity</div>
+            <p class="svc-desc">We build cohesive brand systems from the ground up — color, type, tone, and mark — designed to work across every surface you put it on.</p>
+            <div class="svc-tags">
+              <span class="svc-tag featured">Strategy</span>
+              <span class="svc-tag">Style Guides</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-1">
+            <div class="svc-name">Logo Design</div>
+            <p class="svc-desc">Sharp, scalable logos that hold their own at any size — from business card to the side of a 53-foot trailer.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Wordmark</span>
+              <span class="svc-tag">Emblem</span>
+              <span class="svc-tag">Icon</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-2">
+            <div class="svc-name">Character Design</div>
+            <p class="svc-desc">Custom mascots and illustrated characters that give your brand a face — memorable, ownable, and built to travel.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Mascots</span>
+              <span class="svc-tag">Brand Characters</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-1">
+            <div class="svc-name">Illustration</div>
+            <p class="svc-desc">Original hand-crafted illustrations for wraps, signage, and marketing — artwork that stands out in a sea of stock graphics.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Custom Art</span>
+              <span class="svc-tag">Vector</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-2">
+            <div class="svc-name">AI Image Development</div>
+            <p class="svc-desc">We leverage AI-assisted imagery to concept, iterate, and produce visuals faster — then refine them to production-ready precision.</p>
+            <div class="svc-tags">
+              <span class="svc-tag featured">New</span>
+              <span class="svc-tag">Concept Art</span>
+              <span class="svc-tag">Rapid Iteration</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="svc-card reveal reveal-delay-1">
-        <div class="svc-name">Fleet Graphics</div>
-        <p class="svc-desc">Consistent, high-impact branding across your entire fleet. We handle the design, cutting, and installation at scale — no detail missed.</p>
-        <div class="svc-tags">
-          <span class="svc-tag featured">Best Value</span>
-          <span class="svc-tag">Vans</span>
-          <span class="svc-tag">Multi-Unit</span>
+
+      <!-- Group 2: Large Format Printing -->
+      <div>
+        <div class="svc-group-header reveal">
+          <span class="svc-group-title">Large Format Printing</span>
+        </div>
+        <div class="svc-grid col-2">
+          <div class="svc-card reveal">
+            <div class="svc-name">Vehicle Wraps</div>
+            <p class="svc-desc">Full and partial wraps for cars, trucks, vans, and fleets — precision-cut, premium cast vinyl, installed to last.</p>
+            <div class="svc-tags">
+              <span class="svc-tag featured">Most Popular</span>
+              <span class="svc-tag">Color Change</span>
+              <span class="svc-tag">Fleet</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-1">
+            <div class="svc-name">Aviation Livery</div>
+            <p class="svc-desc">Specialty wraps and livery graphics for aircraft — engineered for the demands of aviation with FAA-compliant materials.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Aircraft</span>
+              <span class="svc-tag">FAA Compliant</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-2">
+            <div class="svc-name">Marine Wraps</div>
+            <p class="svc-desc">High-durability wraps for boats and watercraft, using marine-grade vinyl built to handle UV, saltwater, and constant exposure.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Boats</span>
+              <span class="svc-tag">Marine-Grade</span>
+            </div>
+          </div>
+          <div class="svc-card reveal reveal-delay-1">
+            <div class="svc-name">Commercial Signage</div>
+            <p class="svc-desc">Storefronts, window graphics, banners, and interior signage — large format output that makes your location impossible to miss.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Storefronts</span>
+              <span class="svc-tag">Banners</span>
+              <span class="svc-tag">Interior</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="svc-card reveal reveal-delay-2">
-        <div class="svc-name">Partial Wraps</div>
-        <p class="svc-desc">Maximum visual impact, budget-friendly approach. Strategic partial wraps that punch above their weight for brand visibility.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Hood &amp; Roof</span>
-          <span class="svc-tag">Side Panels</span>
-          <span class="svc-tag">Decals</span>
-        </div>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-name">Custom Design</div>
-        <p class="svc-desc">No idea yet? Our in-house design team takes your vision from sketch to installation-ready file — original, impactful, and built for vinyl.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Logo Design</span>
-          <span class="svc-tag">Mockups</span>
-          <span class="svc-tag">Branding</span>
-        </div>
-      </div>
-      <div class="svc-card reveal reveal-delay-1">
-        <div class="svc-name">Window Graphics</div>
-        <p class="svc-desc">Perforated window films and storefront graphics that maintain visibility from inside while displaying bold imagery on the outside.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Perforated</span>
-          <span class="svc-tag">Solid Film</span>
-          <span class="svc-tag">Storefronts</span>
-        </div>
-      </div>
-      <div class="svc-card reveal reveal-delay-2">
-        <div class="svc-name">Color Change Wraps</div>
-        <p class="svc-desc">Reinvent your vehicle with a full color transformation — matte, gloss, satin, chrome, or color-shift. Protects your factory paint underneath.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Matte</span>
-          <span class="svc-tag">Chrome</span>
-          <span class="svc-tag">Color Shift</span>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -850,7 +912,9 @@ footer{
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
-        <div class="testi-stars">★★★★★</div>
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
         <p class="testi-text">"Absolutely blown away by the quality. My contractor van looks like a million bucks — we've gotten calls directly from people who saw it on the road."</p>
         <div class="testi-author">
           <div class="testi-name">Carlos M.</div>
@@ -858,7 +922,9 @@ footer{
         </div>
       </div>
       <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
         <p class="testi-text">"The design team nailed exactly what I had in my head — and the installation was flawless. Every edge, every curve, perfect. This is the shop."</p>
         <div class="testi-author">
           <div class="testi-name">Jordan T.</div>
@@ -866,7 +932,9 @@ footer{
         </div>
       </div>
       <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
         <p class="testi-text">"We wrapped our entire 12-van fleet and the consistency is incredible. Deadlines were met, communication was great. RH is our go-to from now on."</p>
         <div class="testi-author">
           <div class="testi-name">Maria S.</div>
@@ -1077,6 +1145,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
   });
 });
+
+// ── STAR ANIMATION ──
+(function(){
+  const cards = document.querySelectorAll('.testi-card');
+  const starObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      const stars = entry.target.querySelectorAll('.testi-star');
+      stars.forEach((star, i) => {
+        setTimeout(() => {
+          star.classList.add('lit');
+          star.style.animation = 'starPop 0.4s cubic-bezier(0.36,0.07,0.19,0.97) forwards';
+          setTimeout(() => { star.style.animation = ''; }, 400);
+        }, i * 160);
+      });
+      starObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+  cards.forEach(card => starObserver.observe(card));
+})();
 
 // ── STAT COUNTERS ──
 (function(){
