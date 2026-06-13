@@ -138,8 +138,16 @@ nav.scrolled{padding:1rem 3.5rem;}
 .page-eyebrow{
   display:inline-flex;align-items:center;gap:0.7rem;
   font-size:0.65rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);
-  margin-bottom:1.2rem;font-weight:600;
+  margin-bottom:0;font-weight:600;
 }
+.page-eyebrow-row{
+  display:flex;align-items:center;gap:1.8rem;
+  margin-bottom:1.2rem;
+  flex-wrap:wrap;
+}
+.page-eyebrow-row .breadcrumb{margin-bottom:0;}
+.page-eyebrow-row::after{display:none;}
+.eyebrow-divider{width:1px;height:12px;background:rgba(255,255,255,0.12);flex-shrink:0;}
 .page-title{
   font-family:'Barlow Condensed',sans-serif;
   font-size:clamp(3.5rem,7vw,7rem);
@@ -396,17 +404,20 @@ footer{
   <div class="page-hero-inner">
     <div class="page-hero-content">
       <div class="page-hero-left">
-        <div class="page-eyebrow">Full &amp; Partial Wraps</div>
+        <div class="page-eyebrow-row">
+          <div class="page-eyebrow">Full and Partial Wraps</div>
+          <span class="eyebrow-divider"></span>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">—</span>
+            <a href="index.html#portfolio">Portfolio</a>
+            <span class="breadcrumb-sep">—</span>
+            <span>Vehicle Wraps</span>
+          </div>
+        </div>
         <h1 class="page-title">Vehicle<br><em>Wraps</em></h1>
       </div>
       <div class="page-hero-right">
-        <div class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">—</span>
-          <a href="index.html#portfolio">Portfolio</a>
-          <span class="breadcrumb-sep">—</span>
-          <span>Vehicle Wraps</span>
-        </div>
         <p class="page-hero-desc">
           From bold full wraps to subtle partial graphics — we design and install vehicle wraps that make your brand impossible to ignore. Every job is handled in-house from design to final installation.
         </p>
