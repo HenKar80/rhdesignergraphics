@@ -47,6 +47,7 @@ nav{
 nav.scrolled{padding:1rem 3.5rem;}
 .logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
 .logo-hor{height:42px;width:auto;display:block;}
+.logo-ver{display:none;}
 .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
 .nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:color 0.2s;}
 .nav-links a:hover{color:var(--white);}
@@ -314,6 +315,8 @@ footer{
   .nav-links{display:none;}
   .nav-context{display:none;}
   .mobile-back{display:flex;}
+  .logo-hor{display:none;}
+  .logo-ver{display:block;}
   .page-hero{padding:8rem 2rem 4rem;}
   .page-hero-content{flex-direction:column;align-items:flex-start;gap:2rem;}
   .page-hero-desc{max-width:100%;}
@@ -327,6 +330,7 @@ footer{
   .footer-bottom{flex-direction:column;gap:0.8rem;text-align:center;}
 }
 @media(max-width:560px){
+  .logo-ver{height:58px;}
   .page-hero{padding:7rem 1.5rem 3.5rem;}
   .gallery-section{padding:3rem 1.5rem 4rem;}
   .gallery-grid{grid-template-columns:1fr;}
@@ -345,6 +349,7 @@ footer{
 <nav id="nav">
   <a href="index.html" class="logo">
     <img class="logo-hor" src="images/logo/logo-hor.svg" alt="RH Designer Graphics" height="42">
+    <img class="logo-ver" src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="58">
   </a>
   <div class="nav-context">
     <a href="index.html#portfolio" class="nav-context-back">

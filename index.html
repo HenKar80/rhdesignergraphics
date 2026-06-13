@@ -217,23 +217,34 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 .view-all-link::after{content:'→';}
 
 /* photo placeholder grid */
-.port-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:3px;}
 .port-item{
   position:relative;overflow:hidden;display:block;text-decoration:none;
   background:var(--gray-photo-dark);
+  aspect-ratio:4/3;
 }
-.port-item.large{grid-row:span 2;}
-.port-item.small{display:flex;flex-direction:column;}
+.port-item.large{grid-row:span 1;}
+.port-item.small{display:block;}
 .port-item.small .port-photo-ph{flex:1;min-height:0;}
 .port-photo-ph{
-  width:100%;height:100%;min-height:280px;
-  background:linear-gradient(145deg,var(--gray-photo-dark),var(--gray-photo));
+  width:100%;height:100%;
+  background:#111;
   display:flex;align-items:center;justify-content:center;
   position:relative;
   transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
 }
-.port-item.large .port-photo-ph{min-height:580px;}
 .port-item:hover .port-photo-ph{transform:scale(1.04);}
+.port-photo-ph img{
+  width:100%;height:100%;
+  object-fit:contain;
+  display:block;
+}
+.port-photo-ph.has-bg-img{
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+}
+.port-item.large .port-photo-ph{min-height:0;}
 .port-photo-ph::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 55%);
@@ -477,8 +488,8 @@ footer{
   .proc-steps{grid-template-columns:1fr 1fr;gap:2.5rem;}
   .proc-steps::before{display:none;}
   .gallery-scroll{grid-template-columns:1fr 1fr;}
-  .port-grid{grid-template-columns:1fr 1fr;}
-  .port-item.large{grid-row:span 1;aspect-ratio:16/9;}
+  .port-grid{grid-template-columns:repeat(3,1fr);}
+  .port-item.large{grid-row:span 1;aspect-ratio:4/3;}
   .port-item.small{aspect-ratio:4/3;}
   .port-item.small .port-photo-ph{min-height:0;}
   .testi-grid{grid-template-columns:1fr 1fr;}
@@ -524,8 +535,8 @@ footer{
   .svc-grid{grid-template-columns:1fr;}
   .svc-grid.col-3{grid-template-columns:1fr;}
   .svc-grid.col-2{grid-template-columns:1fr;}
-  .port-grid{grid-template-columns:1fr;}
-  .port-item.large{aspect-ratio:16/9;}
+  .port-grid{grid-template-columns:1fr 1fr;}
+  .port-item.large{aspect-ratio:4/3;}
   .port-item.small{aspect-ratio:4/3;}
   .port-item.small .port-photo-ph{min-height:0;}
   .gallery-scroll{grid-template-columns:1fr 1fr;}
@@ -758,8 +769,10 @@ footer{
     </div>
     <div class="port-grid reveal">
 
-      <a class="port-item large" href="images/work/vehicle-wraps/vehicle-wrap-1.jpg">
-        <div class="port-photo-ph" style="background-image:url('images/work/vehicle-wraps/vehicle-wrap-1.jpg');background-size:cover;background-position:center;"></div>
+      <a class="port-item large" href="vehicle-wraps.html">
+        <div class="port-photo-ph">
+          <img src="images/work/vehicle-wraps/vehicle-wrap-1.jpg" alt="Vehicle Wraps">
+        </div>
         <div class="port-arrow">
           <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </div>
