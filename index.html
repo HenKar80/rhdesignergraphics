@@ -38,7 +38,7 @@ body{background:var(--white);color:var(--text-dark);font-family:'Barlow',sans-se
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;justify-content:space-between;align-items:center;gap:40px;
   padding:1.6rem 3.5rem;
   background:rgba(10,10,10,0.96);
   backdrop-filter:blur(12px);
@@ -486,7 +486,7 @@ footer{
   nav{padding:1.2rem 2rem;}
   nav.scrolled{padding:0.8rem 2rem;}
   .logo-hor{display:none;}
-  .logo-ver{display:block;height:52px;width:auto;}
+  .logo-ver{display:block;height:58px;width:auto;}
   .nav-links{display:none;}
   .hamburger{display:block;}
   .mobile-menu{display:flex;}
@@ -509,7 +509,7 @@ footer{
   .cta-band{padding:5rem 2rem;}
 }
 @media(max-width:600px){
-  .logo-ver{height:46px;}
+  .logo-ver{height:58px;}
   .cursor,.cursor-ring{display:none;}
   body{cursor:auto;}
   .hero-title{font-size:clamp(3.2rem,14vw,5rem);}
