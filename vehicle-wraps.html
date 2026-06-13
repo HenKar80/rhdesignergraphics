@@ -58,17 +58,42 @@ nav.scrolled{padding:1rem 3.5rem;}
 }
 .nav-cta:hover{background:#c08500 !important;color:var(--black) !important;}
 
-/* hamburger */
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;z-index:600;}
-.hamburger svg line{stroke:var(--white);stroke-width:1.5;stroke-linecap:round;transition:transform 0.3s,opacity 0.25s;transform-origin:center;}
-.hamburger.open .bar1{transform:translateY(8px) rotate(45deg);}
-.hamburger.open .bar2{opacity:0;}
-.hamburger.open .bar3{transform:translateY(-8px) rotate(-45deg);}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s;}
-.mobile-menu.open{opacity:1;pointer-events:all;}
-.mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
-.mobile-menu a:hover{color:var(--orange);}
-.mobile-menu a.mob-cta{font-size:1rem;letter-spacing:0.2em;background:var(--orange);color:var(--black);padding:1rem 3rem;margin-top:0.5rem;}
+/* nav breadcrumb context (desktop) */
+.nav-context{
+  display:flex;align-items:center;gap:0.6rem;
+  margin-left:auto;margin-right:2rem;
+}
+.nav-context-back{
+  display:flex;align-items:center;gap:0.3rem;
+  font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);text-decoration:none;font-weight:500;
+  transition:color 0.2s;
+}
+.nav-context-back:hover{color:var(--orange);}
+.nav-context-back svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.nav-context-sep{font-size:0.6rem;color:rgba(255,255,255,0.15);}
+.nav-context-current{
+  font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.65);font-weight:600;
+}
+
+/* hamburger — hidden on inside page, replaced by back-link */
+.hamburger{display:none;}
+.mobile-menu{display:none;}
+
+/* mobile back-nav — shows on mobile only */
+.mobile-back{
+  display:none;
+  align-items:center;
+  gap:0.5rem;
+  text-decoration:none;
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);font-weight:600;
+  transition:color 0.2s;
+  white-space:nowrap;
+}
+.mobile-back:hover{color:var(--orange);}
+.mobile-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
 /* ── PAGE HERO ── */
 .page-hero{
@@ -100,7 +125,6 @@ nav.scrolled{padding:1rem 3.5rem;}
   font-size:0.65rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--orange);
   margin-bottom:1.2rem;font-weight:600;
 }
-.page-eyebrow::before{content:'';width:28px;height:1px;background:var(--orange);}
 .page-title{
   font-family:'Barlow Condensed',sans-serif;
   font-size:clamp(3.5rem,7vw,7rem);
@@ -288,8 +312,8 @@ footer{
   nav{padding:1.2rem 2rem;}
   nav.scrolled{padding:0.9rem 2rem;}
   .nav-links{display:none;}
-  .hamburger{display:block;}
-  .mobile-menu{display:flex;}
+  .nav-context{display:none;}
+  .mobile-back{display:flex;}
   .page-hero{padding:8rem 2rem 4rem;}
   .page-hero-content{flex-direction:column;align-items:flex-start;gap:2rem;}
   .page-hero-desc{max-width:100%;}
@@ -322,27 +346,28 @@ footer{
   <a href="index.html" class="logo">
     <img class="logo-hor" src="images/logo/logo-hor.svg" alt="RH Designer Graphics" height="42">
   </a>
+  <div class="nav-context">
+    <a href="index.html#portfolio" class="nav-context-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Portfolio
+    </a>
+    <span class="nav-context-sep">/</span>
+    <span class="nav-context-current">Vehicle Wraps</span>
+  </div>
   <ul class="nav-links">
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#portfolio">Portfolio</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <svg viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="18">
-      <line class="bar bar1" x1="0" y1="1" x2="24" y2="1"/>
-      <line class="bar bar2" x1="0" y1="9" x2="24" y2="9"/>
-      <line class="bar bar3" x1="0" y1="17" x2="24" y2="17"/>
-    </svg>
-  </button>
+  <!-- mobile: compact Portfolio back link -->
+  <a href="index.html#portfolio" class="mobile-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Portfolio
+  </a>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#services" class="mob-link">Services</a>
-  <a href="index.html#portfolio" class="mob-link">Portfolio</a>
-  <a href="index.html#about" class="mob-link">About</a>
-  <a href="index.html#contact" class="mob-cta">Get a Quote</a>
-</div>
+<div class="mobile-menu" id="mobileMenu"></div>
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
@@ -537,20 +562,6 @@ document.querySelectorAll('a,button,.gallery-card').forEach(el=>{
 const nav = document.getElementById('nav');
 window.addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ── HAMBURGER ──
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>{
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-mobileMenu.querySelectorAll('a').forEach(a=>{
-  a.addEventListener('click',()=>{
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  });
 });
 
 // ── SCROLL REVEAL ──
