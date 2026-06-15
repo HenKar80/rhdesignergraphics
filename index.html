@@ -398,8 +398,12 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
   transition:border-color 0.25s,background 0.25s;
 }
 .c-social-icon:hover{border-color:var(--orange);background:var(--orange-dim);}
-.c-social-icon svg{width:16px;height:16px;stroke:var(--black);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.25s;}
+.c-social-icon svg{width:16px;height:16px;stroke:var(--black);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.25s,fill 0.25s;}
 .c-social-icon:hover svg{stroke:var(--orange);}
+.c-social-icon.fb svg{stroke:none;fill:var(--black);}
+.c-social-icon.fb:hover svg{stroke:none;fill:var(--orange);}
+.c-social-icon img{width:16px;height:16px;transition:opacity 0.25s;}
+.c-social-icon:hover img{opacity:0.6;}
 
 .contact-form{background:#e4e4e4;padding:7rem 5rem;display:flex;flex-direction:column;justify-content:center;}
 .form-group{margin-bottom:1.8rem;}
@@ -952,27 +956,27 @@ footer{
     <div class="reveal reveal-delay-2">
       <div class="c-detail">
         <span class="c-detail-label">Email</span>
-        <div class="c-detail-val">info@rhdesignergraphics.com</div>
+        <div class="c-detail-val">contact@rhdesignergraphics.com</div>
       </div>
       <div class="c-detail">
         <span class="c-detail-label">Phone</span>
-        <div class="c-detail-val">(555) 000-0000</div>
+        <div class="c-detail-val">941-400-2204</div>
       </div>
       <div class="c-detail">
         <span class="c-detail-label">Location</span>
-        <div class="c-detail-val">Your City, State</div>
+        <div class="c-detail-val">Bradenton, FL</div>
       </div>
       <div class="c-detail">
         <span class="c-detail-label">Follow Us</span>
         <div class="c-socials">
           <a href="#" class="c-social-icon" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <img src="images/logo/social/instagram.svg" alt="Instagram" width="16" height="16">
           </a>
           <a href="#" class="c-social-icon" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <img src="images/logo/social/facebook.svg" alt="Facebook" width="16" height="16">
           </a>
           <a href="#" class="c-social-icon" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <img src="images/logo/social/tiktok.svg" alt="TikTok" width="16" height="16">
           </a>
         </div>
       </div>
