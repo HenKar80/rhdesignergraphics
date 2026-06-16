@@ -759,7 +759,7 @@ footer{
 
       <a class="port-item small" href="commercial-signage.html">
         <div class="port-photo-ph">
-          <img src="images/work/commercial-signage/commercial-signage-1.jpg" alt="Commercial Signage">
+          <img id="signageCoverPhoto" src="images/work/commercial-signage/commercial-signage-1.jpg" alt="Commercial Signage">
         </div>
         <div class="port-arrow">
           <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -1059,6 +1059,36 @@ footer{
   ];
   const pick = photos[Math.floor(Math.random() * photos.length)];
   const img = document.getElementById('portCoverPhoto');
+  if(img) img.src = pick;
+})();
+
+// ── OUR WORK COVER — random commercial signage photo on each load ──
+(function(){
+  const photos = [
+    'images/work/commercial-signage/commercial-signage-1.jpg',
+    'images/work/commercial-signage/commercial-signage-2.jpg',
+    'images/work/commercial-signage/commercial-signage-3.jpg',
+    'images/work/commercial-signage/commercial-signage-4.jpg',
+    'images/work/commercial-signage/commercial-signage-5.jpg',
+    'images/work/commercial-signage/commercial-signage-6.jpg',
+    'images/work/commercial-signage/commercial-signage-7.jpg',
+    'images/work/commercial-signage/commercial-signage-8.jpg',
+    'images/work/commercial-signage/commercial-signage-9.jpg',
+    'images/work/commercial-signage/commercial-signage-10.jpg',
+    'images/work/commercial-signage/commercial-signage-11.jpg',
+    'images/work/commercial-signage/commercial-signage-12.jpg',
+    'images/work/commercial-signage/commercial-signage-13.jpg',
+    'images/work/commercial-signage/commercial-signage-14.jpg',
+    'images/work/commercial-signage/commercial-signage-15.jpg',
+    'images/work/commercial-signage/commercial-signage-16.jpg',
+    'images/work/commercial-signage/commercial-signage-17.jpg',
+    'images/work/commercial-signage/commercial-signage-18.jpg',
+    'images/work/commercial-signage/commercial-signage-19.jpg',
+    'images/work/commercial-signage/commercial-signage-20.jpg',
+    'images/work/commercial-signage/commercial-signage-21.jpg'
+  ];
+  const pick = photos[Math.floor(Math.random() * photos.length)];
+  const img = document.getElementById('signageCoverPhoto');
   if(img) img.src = pick;
 })();
 
