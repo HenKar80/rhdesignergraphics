@@ -88,28 +88,20 @@ nav.scrolled{padding:1rem 3.5rem;}
 .hamburger{display:none;}
 .mobile-menu{display:none;}
 
-/* mobile back pill — fixed below nav, right side, mobile only */
-.mobile-back-pill{
+/* mobile back-nav — shows on mobile only */
+.mobile-back{
   display:none;
-  position:fixed;
-  top:73px;
-  right:0;
-  z-index:490;
   align-items:center;
-  gap:0.4rem;
-  padding:0.55rem 1.4rem 0.55rem 1rem;
-  background:rgba(10,10,10,0.82);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border-dark);
-  border-left:1px solid var(--border-dark);
+  gap:0.5rem;
+  margin-left:auto;
   text-decoration:none;
-  font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:rgba(255,255,255,0.45);font-weight:600;
-  transition:color 0.2s,top 0.3s;
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);font-weight:600;
+  transition:color 0.2s;
   white-space:nowrap;
 }
-.mobile-back-pill:hover{color:var(--orange);}
-.mobile-back-pill svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.mobile-back:hover{color:var(--orange);}
+.mobile-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
 /* ── PAGE HERO ── */
 .page-hero{
@@ -336,7 +328,7 @@ footer{
   nav.scrolled{padding:0.9rem 2rem;}
   .nav-links{display:none;}
   .nav-context{display:none;}
-  .mobile-back-pill{display:flex;}
+  .mobile-back{display:flex;}
   .logo-hor{display:none;}
   .logo-ver{display:block;}
   .page-hero{padding:8rem 2rem 4rem;}
@@ -379,23 +371,22 @@ footer{
     <li><a href="index.html#portfolio">Our Work</a></li>
     <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
+  <!-- mobile: compact Portfolio back link -->
+  <a href="index.html#portfolio" class="mobile-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Our Work
+  </a>
 </nav>
 
 <!-- breadcrumb strip — below nav, flush right, desktop only -->
 <div class="nav-context" id="navContext">
   <a href="index.html#portfolio" class="nav-context-back">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    Portfolio
+    Our Work
   </a>
   <span class="nav-context-sep">/</span>
   <span class="nav-context-current">Vehicle Wraps</span>
 </div>
-
-<!-- mobile back — fixed below nav, right side, mobile only -->
-<a href="index.html#portfolio" class="mobile-back-pill" id="mobileBackPill">
-  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-  Back
-</a>
 
 <div class="mobile-menu" id="mobileMenu"></div>
 
@@ -679,8 +670,6 @@ window.addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled', scrolled);
   const ctx = document.getElementById('navContext');
   if(ctx) ctx.style.top = scrolled ? '57px' : '73px';
-  const pill = document.getElementById('mobileBackPill');
-  if(pill) pill.style.top = scrolled ? '57px' : '73px';
 });
 
 // ── SCROLL REVEAL ──
