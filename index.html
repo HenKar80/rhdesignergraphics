@@ -159,7 +159,7 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 
 
 /* ── PORTFOLIO (dark section) ── */
-.portfolio{padding:7rem 4rem;background:var(--white);}
+.portfolio{padding:7rem 4rem;background:var(--dark-section);}
 .portfolio-inner{max-width:1280px;margin:0 auto;}
 .port-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;}
 .view-all-link{
@@ -450,8 +450,8 @@ footer{
   <div class="portfolio-inner">
     <div class="port-head reveal">
       <div>
-        <span class="sec-label dark">Featured Projects</span>
-        <h2 class="sec-title on-light">Our <em>Work</em></h2>
+        <span class="sec-label light">Featured Projects</span>
+        <h2 class="sec-title on-dark">Our <em>Work</em></h2>
       </div>
       <a href="#" class="view-all-link">View All Projects</a>
     </div>
@@ -529,8 +529,8 @@ footer{
 
 
 
-<!-- ── TESTIMONIALS (dark) ── -->
-<section class="testimonials">
+<!-- ── TESTIMONIALS (dark) — hidden, saved for future use ── -->
+<section class="testimonials" style="display:none;">
   <div class="testimonials-inner">
     <div class="reveal">
       <span class="sec-label light">Client Reviews</span>
@@ -686,9 +686,16 @@ footer{
     'images/work/vehicle-wraps/vehicle-wrap-8.jpg',
     'images/work/vehicle-wraps/vehicle-wrap-9.jpg'
   ];
-  const pick = photos[Math.floor(Math.random() * photos.length)];
   const img = document.getElementById('portCoverPhoto');
-  if(img) img.src = pick;
+  if(!img) return;
+  const pool = photos.slice().sort(() => Math.random() - 0.5);
+  let idx = 0;
+  function tryNext() {
+    if(idx >= pool.length) return;
+    img.onerror = tryNext;
+    img.src = pool[idx++];
+  }
+  tryNext();
 })();
 
 // ── OUR WORK COVER — random commercial signage photo on each load ──
@@ -716,9 +723,17 @@ footer{
     'images/work/commercial-signage/commercial-signage-20.jpg',
     'images/work/commercial-signage/commercial-signage-21.jpg'
   ];
-  const pick = photos[Math.floor(Math.random() * photos.length)];
   const img = document.getElementById('signageCoverPhoto');
-  if(img) img.src = pick;
+  if(!img) return;
+  // Shuffle a copy so we try each photo at most once
+  const pool = photos.slice().sort(() => Math.random() - 0.5);
+  let idx = 0;
+  function tryNext() {
+    if(idx >= pool.length) return; // all failed, leave blank
+    img.onerror = tryNext;
+    img.src = pool[idx++];
+  }
+  tryNext();
 })();
 
 // ── CURSOR ──
