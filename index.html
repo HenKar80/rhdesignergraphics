@@ -154,50 +154,12 @@ h2.sec-title.on-dark{color:var(--white);}
 h2.sec-title.on-light{color:var(--text-dark);}
 h2.sec-title em{font-style:normal;color:var(--orange);}
 
-/* ── STATS BAND ── */
-.stats-band{background:var(--orange);padding:2.2rem 4rem;display:flex;justify-content:center;gap:0;}
-.stat-item{flex:1;max-width:220px;text-align:center;border-right:1px solid rgba(0,0,0,0.12);padding:0.5rem 2rem;}
-.stat-item:last-child{border-right:none;}
-.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;font-weight:900;letter-spacing:0.02em;color:var(--black);line-height:1;display:block;}
-.stat-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);font-weight:600;display:block;margin-top:0.2rem;}
 
-/* ── SERVICES (white section) ── */
-.services{padding:7rem 4rem;background:var(--white);}
-.services-inner{max-width:1280px;margin:0 auto;}
-.svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4.5rem;align-items:end;}
-.svc-intro-text p{font-size:0.97rem;line-height:1.85;color:#555;margin-top:1.5rem;max-width:400px;}
-.svc-groups{display:flex;flex-direction:column;gap:3rem;}
-.svc-group-header{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.2rem;}
-.svc-group-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--orange);}
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--white);}
-.svc-grid.col-3{grid-template-columns:repeat(3,1fr);}
-.svc-grid.col-2{grid-template-columns:repeat(2,1fr);}
-.svc-card{
-  background:var(--white);
-  padding:3rem 2.5rem;
-  transition:background 0.3s;
-  position:relative;overflow:hidden;
-}
-.svc-card::before{
-  content:'';position:absolute;top:0;left:0;width:3px;height:0;
-  background:var(--orange);transition:height 0.4s ease;
-}
-.svc-card:hover::before{height:100%;}
-.svc-card:hover{background:#faf9f6;}
-.svc-icon{
-  width:48px;height:48px;background:var(--orange-dim);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.8rem;
-}
-.svc-icon svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.svc-name{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.8rem;color:var(--text-dark);}
-.svc-desc{font-size:0.85rem;line-height:1.75;color:#666;margin-bottom:1.8rem;}
-.svc-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.svc-tag{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;border:1px solid var(--border-light);padding:0.35rem 0.9rem;color:var(--text-muted);font-weight:500;}
-.svc-tag.featured{border-color:var(--orange-line);color:var(--orange);}
+
+
 
 /* ── PORTFOLIO (dark section) ── */
-.portfolio{padding:7rem 4rem;background:var(--dark-section);}
+.portfolio{padding:7rem 4rem;background:var(--white);}
 .portfolio-inner{max-width:1280px;margin:0 auto;}
 .port-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;}
 .view-all-link{
@@ -261,98 +223,8 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 .port-item:hover .port-arrow{opacity:1;transform:translateY(0);}
 .ph-icon{color:rgba(255,255,255,0.15);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;}
 
-/* ── ABOUT (white section) ── */
-.about{display:grid;grid-template-columns:1fr 1fr;min-height:680px;}
-.about-visual{
-  position:relative;overflow:hidden;
-  background:linear-gradient(145deg,#c8c7c3,#d8d7d3);
-  display:flex;align-items:center;justify-content:center;
-  min-height:500px;
-}
-.about-visual::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(0,0,0,0) 60%,rgba(245,245,243,0.15) 100%);
-}
-.about-ph-label{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;
-  color:rgba(0,0,0,0.2);position:absolute;bottom:1.5rem;left:1.5rem;
-}
-.about-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;}
 
-.about-content{
-  padding:6rem 5rem;
-  background:var(--white);
-  display:flex;flex-direction:column;justify-content:center;
-}
-.about-content .sec-label{color:var(--orange);}
-.about-body{margin-top:1.8rem;font-size:0.97rem;line-height:1.85;color:#555;max-width:440px;}
-.about-body p+p{margin-top:1.2rem;}
-.about-callout{
-  margin-top:2.5rem;padding:1.5rem 2rem;
-  border-left:3px solid var(--orange);
-  background:var(--off-white);
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.3rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;
-  color:var(--text-dark);line-height:1.2;
-}
-.about-callout em{color:var(--orange);font-style:normal;}
-.about-cta{margin-top:2.5rem;}
 
-/* ── PROCESS (dark section) ── */
-.process{padding:7rem 4rem;background:var(--black);}
-.process-inner{max-width:1280px;margin:0 auto;}
-.proc-head{margin-bottom:4rem;}
-.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
-.proc-steps::before{display:none;}
-.proc-step{padding:0 2rem;position:relative;cursor:default;}
-.proc-step-num{
-  width:48px;height:48px;
-  border-radius:50%;
-  border:1px solid var(--orange-line);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1rem;font-weight:800;color:var(--orange);letter-spacing:0.05em;
-  margin-bottom:1.8rem;background:var(--black);
-  position:relative;z-index:1;
-  transition:background 0.3s,border-color 0.3s,color 0.3s;
-}
-.proc-step:hover .proc-step-num{
-  background:var(--orange);
-  border-color:var(--orange);
-  color:var(--black);
-}
-.proc-step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);margin-bottom:0.7rem;transition:color 0.3s;}
-.proc-step-desc{font-size:0.83rem;line-height:1.75;color:var(--text-muted-light);}
-
-/* ── GALLERY ROW (white section) ── */
-.gallery-row{padding:7rem 4rem;background:var(--off-white);}
-.gallery-row-inner{max-width:1280px;margin:0 auto;}
-.gallery-scroll{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;
-  margin-top:3.5rem;background:var(--gray-mid);
-}
-.gallery-item{
-  aspect-ratio:3/4;
-  background:linear-gradient(160deg,var(--gray-photo),var(--gray-photo-dark));
-  position:relative;overflow:hidden;cursor:pointer;
-}
-.gallery-item::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 60%);
-  opacity:0;transition:opacity 0.35s;
-}
-.gallery-item:hover::after{opacity:1;}
-.gallery-item-label{
-  position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;z-index:2;
-  transform:translateY(8px);opacity:0;transition:transform 0.35s,opacity 0.35s;
-}
-.gallery-item:hover .gallery-item-label{transform:translateY(0);opacity:1;}
-.gallery-item-label span{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:0.06em;}
-.gallery-ph-icon{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-}
-.gallery-ph-icon span{font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(0,0,0,0.18);}
 
 /* ── TESTIMONIALS (dark section) ── */
 .testimonials{padding:7rem 4rem;background:var(--dark-section);}
@@ -474,12 +346,6 @@ footer{
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .logo-hor{height:36px;}
-  .svc-grid{grid-template-columns:1fr 1fr;}
-  .svc-grid.col-3{grid-template-columns:1fr 1fr;}
-  .svc-grid.col-2{grid-template-columns:1fr 1fr;}
-  .proc-steps{grid-template-columns:1fr 1fr;gap:2.5rem;}
-  .proc-steps::before{display:none;}
-  .gallery-scroll{grid-template-columns:1fr 1fr;}
   .port-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
   .port-item.large{grid-row:span 1;aspect-ratio:4/3;}
   .port-item.small{aspect-ratio:4/3;}
@@ -495,15 +361,7 @@ footer{
   .hamburger{display:block;}
   .mobile-menu{display:flex;}
   .hero-content{left:2rem;bottom:4rem;right:2rem;}
-  .stats-band{padding:2rem 2rem;flex-wrap:wrap;justify-content:center;}
-  .stat-item{flex:1 1 50%;border-bottom:1px solid rgba(0,0,0,0.12);text-align:center;}
-  .stat-item:nth-child(2n){border-right:none;}
-  .stat-item:last-child{border-bottom:none;}
-  .services,.portfolio,.process,.gallery-row,.testimonials{padding:5rem 2rem;}
-  .svc-intro{grid-template-columns:1fr;gap:1.5rem;}
-  .about{grid-template-columns:1fr;}
-  .about-visual{min-height:60vw;}
-  .about-content{padding:4rem 2.5rem;}
+  .portfolio,.testimonials{padding:5rem 2rem;}
   .contact{grid-template-columns:1fr;}
   .contact-info{padding:5rem 2.5rem;}
   .contact-form{padding:4rem 2.5rem;}
@@ -521,26 +379,16 @@ footer{
   .hero-content{left:1.5rem;right:1.5rem;bottom:3.5rem;}
   .hero-br{display:none;}
   .hero-dots{bottom:2rem;}
-  .stats-band{flex-direction:column;align-items:center;}
-  .stat-item{border-right:none;border-bottom:1px solid rgba(0,0,0,0.1);width:100%;text-align:center;}
-  .stat-item:last-child{border-bottom:none;}
-  .svc-grid{grid-template-columns:1fr;}
-  .svc-grid.col-3{grid-template-columns:1fr;}
-  .svc-grid.col-2{grid-template-columns:1fr;}
   .port-grid{grid-template-columns:1fr;grid-template-rows:auto;}
   .port-item.large{grid-row:span 1;aspect-ratio:4/3;}
   .port-item.small{aspect-ratio:4/3;}
   .port-item.small .port-photo-ph{min-height:0;}
-  .gallery-scroll{grid-template-columns:1fr 1fr;}
-  .gallery-item{aspect-ratio:1/1;}
   .testi-grid{grid-template-columns:1fr;}
-  .proc-steps{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   footer{padding:2rem 1.5rem;}
-  .services,.portfolio,.process,.gallery-row,.testimonials{padding:4rem 1.25rem;}
+  .portfolio,.testimonials{padding:4rem 1.25rem;}
   .contact-info{padding:4rem 1.5rem;}
   .contact-form{padding:3.5rem 1.5rem;}
-  .about-content{padding:3rem 1.5rem;}
 }
 </style>
 </head>
@@ -556,9 +404,7 @@ footer{
     <img class="logo-ver" src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="42">
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -571,9 +417,7 @@ footer{
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" class="mob-link">Services</a>
   <a href="#portfolio" class="mob-link">Portfolio</a>
-  <a href="#about" class="mob-link">About</a>
   <a href="#contact" class="mob-link mob-cta">Get a Quote</a>
 </div>
 
@@ -600,145 +444,15 @@ footer{
 
 </section>
 
-<!-- ── STATS BAND (orange) ── -->
-<div class="stats-band">
-  <div class="stat-item">
-    <span class="stat-num" data-target="500" data-suffix="+">0</span>
-    <span class="stat-label">Vehicles Wrapped</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="10" data-suffix="+">0</span>
-    <span class="stat-label">Years Experience</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="100" data-suffix="%">0</span>
-    <span class="stat-label">Satisfaction Rate</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="48" data-suffix="hr">0</span>
-    <span class="stat-label">Avg Turnaround</span>
-  </div>
-</div>
 
-<!-- ── SERVICES (white) ── -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="svc-intro reveal">
-      <div>
-        <span class="sec-label dark">What We Do</span>
-        <h2 class="sec-title on-light">Our <em>Services</em></h2>
-      </div>
-      <div class="svc-intro-text">
-        <p>From a single car transformation to a full commercial fleet, we deliver precision-cut, vibrant wraps that protect your vehicle and amplify your brand — every time.</p>
-      </div>
-    </div>
-    <div class="svc-groups">
-
-      <!-- Group 1: Design and Branding -->
-      <div>
-        <div class="svc-group-header reveal">
-          <span class="svc-group-title">Design &amp; Branding</span>
-        </div>
-        <div class="svc-grid col-3">
-          <div class="svc-card reveal">
-            <div class="svc-name">Brand Identity</div>
-            <p class="svc-desc">We build cohesive brand systems from the ground up — color, type, tone, and mark — designed to work across every surface you put it on.</p>
-            <div class="svc-tags">
-              <span class="svc-tag featured">Strategy</span>
-              <span class="svc-tag">Style Guides</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-1">
-            <div class="svc-name">Logo Design</div>
-            <p class="svc-desc">Sharp, scalable logos that hold their own at any size — from business card to the side of a 53-foot trailer.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Wordmark</span>
-              <span class="svc-tag">Emblem</span>
-              <span class="svc-tag">Icon</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-2">
-            <div class="svc-name">Character Design</div>
-            <p class="svc-desc">Custom mascots and illustrated characters that give your brand a face — memorable, ownable, and built to travel.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Mascots</span>
-              <span class="svc-tag">Brand Characters</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-1">
-            <div class="svc-name">Illustration</div>
-            <p class="svc-desc">Original hand-crafted illustrations for wraps, signage, and marketing — artwork that stands out in a sea of stock graphics.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Custom Art</span>
-              <span class="svc-tag">Vector</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-2">
-            <div class="svc-name">AI Image Development</div>
-            <p class="svc-desc">We leverage AI-assisted imagery to concept, iterate, and produce visuals faster — then refine them to production-ready precision.</p>
-            <div class="svc-tags">
-              <span class="svc-tag featured">New</span>
-              <span class="svc-tag">Concept Art</span>
-              <span class="svc-tag">Rapid Iteration</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group 2: Large Format Printing -->
-      <div>
-        <div class="svc-group-header reveal">
-          <span class="svc-group-title">Large Format Printing</span>
-        </div>
-        <div class="svc-grid col-2">
-          <div class="svc-card reveal">
-            <div class="svc-name">Vehicle Wraps</div>
-            <p class="svc-desc">Full and partial wraps for cars, trucks, vans, and fleets — precision-cut, premium cast vinyl, installed to last.</p>
-            <div class="svc-tags">
-              <span class="svc-tag featured">Most Popular</span>
-              <span class="svc-tag">Color Change</span>
-              <span class="svc-tag">Fleet</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-1">
-            <div class="svc-name">Aviation Livery</div>
-            <p class="svc-desc">Specialty wraps and livery graphics for aircraft — engineered for the demands of aviation with FAA-compliant materials.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Aircraft</span>
-              <span class="svc-tag">FAA Compliant</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-2">
-            <div class="svc-name">Marine Wraps</div>
-            <p class="svc-desc">High-durability wraps for boats and watercraft, using marine-grade vinyl built to handle UV, saltwater, and constant exposure.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Boats</span>
-              <span class="svc-tag">Marine-Grade</span>
-            </div>
-          </div>
-          <div class="svc-card reveal reveal-delay-1">
-            <div class="svc-name">Commercial Signage</div>
-            <p class="svc-desc">Storefronts, window graphics, banners, and interior signage — large format output that makes your location impossible to miss.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Storefronts</span>
-              <span class="svc-tag">Banners</span>
-              <span class="svc-tag">Interior</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ── PORTFOLIO (dark) ── -->
 <section class="portfolio" id="portfolio">
   <div class="portfolio-inner">
     <div class="port-head reveal">
       <div>
-        <span class="sec-label light">Featured Projects</span>
-        <h2 class="sec-title on-dark">Our <em>Work</em></h2>
+        <span class="sec-label dark">Featured Projects</span>
+        <h2 class="sec-title on-light">Our <em>Work</em></h2>
       </div>
       <a href="#" class="view-all-link">View All Projects</a>
     </div>
@@ -813,90 +527,8 @@ footer{
   </div>
 </section>
 
-<!-- ── ABOUT (white) ── -->
-<section class="about" id="about">
-  <div class="about-visual">
-    <img src="images/about/about.jpg" alt="RH Designer Graphics Shop">
-  </div>
-  <div class="about-content">
-    <span class="sec-label">About RH Designer Graphics</span>
-    <h2 class="sec-title on-light reveal">Built on <em>Precision</em><br>and Passion</h2>
-    <div class="about-body reveal reveal-delay-1">
-      <p>We're a vehicle wrap studio driven by craft. From the first design mockup to the final squeegee pass, every detail matters — and you'll see that in the finished product.</p>
-      <p>Our team brings together years of installation experience and a sharp eye for design. We use only premium cast vinyl from top-tier brands, so your wrap looks great and lasts for years.</p>
-      <p>Whether you're a business owner growing your brand on the road or a car enthusiast after a jaw-dropping color change, RH Designer Graphics delivers work you'll be proud to drive.</p>
-    </div>
-    <div class="about-callout reveal reveal-delay-2">
-      "We don't just wrap vehicles —<br><em>we build rolling billboards.</em>"
-    </div>
-    <div class="about-cta reveal reveal-delay-3">
-      <a href="#contact" class="btn-orange">Start Your Project</a>
-    </div>
-  </div>
-</section>
 
-<!-- ── PROCESS (dark) ── -->
-<section class="process">
-  <div class="process-inner">
-    <div class="proc-head reveal">
-      <span class="sec-label light">How It Works</span>
-      <h2 class="sec-title on-dark">The <em>Process</em></h2>
-    </div>
-    <div class="proc-steps">
-      <div class="proc-step reveal">
-        <div class="proc-step-num">01</div>
-        <div class="proc-step-title">Consultation</div>
-        <p class="proc-step-desc">We sit down (or connect remotely) to understand your vehicle, vision, and goals. No pressure — just ideas.</p>
-      </div>
-      <div class="proc-step reveal reveal-delay-1">
-        <div class="proc-step-num">02</div>
-        <div class="proc-step-title">Design and Mockup</div>
-        <p class="proc-step-desc">Our design team renders a full preview of your wrap so you can see exactly what you're getting before we print a single inch.</p>
-      </div>
-      <div class="proc-step reveal reveal-delay-2">
-        <div class="proc-step-num">03</div>
-        <div class="proc-step-title">Print and Cut</div>
-        <p class="proc-step-desc">We print on premium large-format equipment and precision-cut every panel — color-matched and ready for installation.</p>
-      </div>
-      <div class="proc-step reveal reveal-delay-3">
-        <div class="proc-step-num">04</div>
-        <div class="proc-step-title">Installation</div>
-        <p class="proc-step-desc">Our certified installers apply every panel in a controlled environment. You pick up a vehicle that stops traffic.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── GALLERY ROW (off-white) ── -->
-<section class="gallery-row">
-  <div class="gallery-row-inner">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;" class="reveal">
-      <div>
-        <span class="sec-label dark">Recent Installs</span>
-        <h2 class="sec-title on-light">Fresh <em>Off the Shop</em></h2>
-      </div>
-      <a href="#" class="view-all-link" style="color:var(--orange);">See All Installs</a>
-    </div>
-    <div class="gallery-scroll reveal reveal-delay-1">
-      <div class="gallery-item">
-        <div class="gallery-ph-icon"><span>Photo</span></div>
-        <div class="gallery-item-label"><span>Full Wrap — Sports Car</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-ph-icon"><span>Photo</span></div>
-        <div class="gallery-item-label"><span>Color Change — Pickup</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-ph-icon"><span>Photo</span></div>
-        <div class="gallery-item-label"><span>Fleet — Service Vans</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-ph-icon"><span>Photo</span></div>
-        <div class="gallery-item-label"><span>Partial — Food Truck</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── TESTIMONIALS (dark) ── -->
 <section class="testimonials">
@@ -1021,9 +653,7 @@ footer{
       <img src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="38" style="display:block;">
     </div>
     <div class="footer-links">
-      <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -1105,7 +735,7 @@ setInterval(() => {
   ring.style.left = mx+'px';
   ring.style.top  = my+'px';
 }, 60);
-document.querySelectorAll('a,button,.port-item,.svc-card,.gallery-item').forEach(el => {
+document.querySelectorAll('a,button,.port-item').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
 });
@@ -1168,41 +798,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   cards.forEach(card => starObserver.observe(card));
 })();
 
-// ── STAT COUNTERS ──
-(function(){
-  const statEls = document.querySelectorAll('.stat-num[data-target]');
-  let animated  = false;
-
-  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
-
-  function animateCounters(){
-    if(animated) return;
-    animated = true;
-    const duration = 1800;
-    const start    = performance.now();
-
-    function tick(now){
-      const elapsed  = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased    = easeOut(progress);
-
-      statEls.forEach(el => {
-        const target = +el.dataset.target;
-        const suffix = el.dataset.suffix || '';
-        el.textContent = Math.round(eased * target) + suffix;
-      });
-
-      if(progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  const band = document.querySelector('.stats-band');
-  const statsObserver = new IntersectionObserver(entries => {
-    if(entries[0].isIntersecting){ animateCounters(); statsObserver.disconnect(); }
-  }, { threshold: 0.4 });
-  statsObserver.observe(band);
-})();
 
 // ── CONTACT FORM ──
 const contactForm = document.getElementById('contactForm');
