@@ -162,6 +162,32 @@ h2.sec-title em{font-style:normal;color:var(--orange);}
 .portfolio{padding:7rem 4rem;background:var(--dark-section);}
 .portfolio-inner{max-width:1280px;margin:0 auto;}
 .port-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;}
+.port-marquee-wrap{
+  position:relative;
+  overflow:hidden;white-space:nowrap;
+  background:var(--dark-section);
+  height:clamp(9rem,22vw,19rem);
+  display:flex;
+  align-items:flex-end;
+}
+.port-marquee-wrap::before,.port-marquee-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:12%;z-index:2;pointer-events:none;
+}
+.port-marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--dark-section),transparent);}
+.port-marquee-wrap::after{right:0;background:linear-gradient(270deg,var(--dark-section),transparent);}
+.port-marquee-track{display:inline-flex;align-items:flex-end;animation:portMarquee 32s linear infinite;line-height:1;}
+.port-marquee-item{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(7.5rem,21vw,18rem);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-0.01em;
+  color:#1a1a1a;
+  padding:0 0.8rem;
+  line-height:1;
+  margin-bottom:-0.1em;
+}
+@keyframes portMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .view-all-link{
   font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;
   color:var(--orange);text-decoration:none;font-weight:600;
@@ -526,6 +552,14 @@ footer{
     </div>
   </div>
 </section>
+
+<!-- ── PORTFOLIO MARQUEE (subtle, on dark) ── -->
+<div class="port-marquee-wrap">
+  <div class="port-marquee-track">
+    <span class="port-marquee-item">AVIATION MARINE AUTOMOTIVE ARCHITECTURAL </span>
+    <span class="port-marquee-item">AVIATION MARINE AUTOMOTIVE ARCHITECTURAL </span>
+  </div>
+</div>
 
 
 
