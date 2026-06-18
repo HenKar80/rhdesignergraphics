@@ -525,9 +525,9 @@ footer{
         </div>
       </a>
 
-      <a class="port-item small" href="#">
-        <div class="port-photo-ph placeholder-ph">
-          <span class="ph-icon">Photo</span>
+      <a class="port-item small" href="aviation-graphics.html">
+        <div class="port-photo-ph">
+          <img id="aviationCoverPhoto" src="images/work/aviation-graphics/aviation-graphics-1.jpg" alt="Aviation Graphics">
         </div>
         <div class="port-arrow">
           <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -787,6 +787,23 @@ footer{
     'images/work/decal-packages/decal-packages-9.jpg'
   ];
   const img = document.getElementById('decalCoverPhoto');
+  if(!img) return;
+  const pool = photos.slice().sort(() => Math.random() - 0.5);
+  let idx = 0;
+  function tryNext() {
+    if(idx >= pool.length) return;
+    img.onerror = tryNext;
+    img.src = pool[idx++];
+  }
+  tryNext();
+})();
+
+// ── OUR WORK COVER — random aviation graphics photo on each load ──
+(function(){
+  const photos = [
+    'images/work/aviation-graphics/aviation-graphics-1.jpg'
+  ];
+  const img = document.getElementById('aviationCoverPhoto');
   if(!img) return;
   const pool = photos.slice().sort(() => Math.random() - 0.5);
   let idx = 0;
