@@ -452,7 +452,7 @@ footer{
 <!-- ── HERO ── -->
 <section id="hero">
 
-  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline></video>
+  <img class="hero-video" id="heroBanner" src="images/banner/banner-1.jpg" alt="RH Designer Graphics vehicle wrap">
 
   <div class="hero-tint"></div>
 
@@ -700,16 +700,6 @@ footer{
 </footer>
 
 <script>
-// ── HERO VIDEO — random pick on each load ──
-(function(){
-  const videos = [
-    'images/banner/banner-1.mp4',
-    'images/banner/banner-2.mp4'
-  ];
-  const pick = videos[Math.floor(Math.random() * videos.length)];
-  document.getElementById('heroVideo').src = pick;
-})();
-
 // ── OUR WORK COVER — random vehicle wrap photo on each load ──
 (function(){
   const photos = [
