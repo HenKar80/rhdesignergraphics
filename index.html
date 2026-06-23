@@ -700,6 +700,27 @@ footer{
 </footer>
 
 <script>
+// ── HERO BANNER — random banner photo on each load ──
+(function(){
+  const photos = [
+    'images/banner/banner-1.jpg',
+    'images/banner/banner-2.jpg',
+    'images/banner/banner-3.jpg',
+    'images/banner/banner-4.jpg',
+    'images/banner/banner-5.jpg'
+  ];
+  const img = document.getElementById('heroBanner');
+  if(!img) return;
+  const pool = photos.slice().sort(() => Math.random() - 0.5);
+  let idx = 0;
+  function tryNext() {
+    if(idx >= pool.length) return;
+    img.onerror = tryNext;
+    img.src = pool[idx++];
+  }
+  tryNext();
+})();
+
 // ── OUR WORK COVER — random vehicle wrap photo on each load ──
 (function(){
   const photos = [
