@@ -64,17 +64,75 @@ nav.scrolled{padding:1rem 3.5rem;}
 }
 .nav-cta:hover{background:#c08500 !important;color:var(--black) !important;}
 
+/* nav dropdown — "Our Work" */
+.nav-item{position:relative;display:flex;align-items:center;}
+.nav-dropdown-trigger{
+  display:flex;align-items:center;gap:0.4rem;cursor:pointer;
+}
+.nav-dropdown-trigger svg{
+  width:8px;height:8px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  transition:transform 0.25s;
+}
+.nav-item:hover .nav-dropdown-trigger svg{transform:rotate(180deg);}
+.nav-dropdown{
+  position:absolute;top:100%;left:50%;
+  transform:translateX(-50%);
+  min-width:230px;
+  background:rgba(10,10,10,0.98);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--border-dark);
+  padding:0.7rem;
+  display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;
+  transition:opacity 0.2s ease;
+  z-index:501;
+}
+.nav-item:hover .nav-dropdown{opacity:1;visibility:visible;}
+.nav-dropdown a{
+  padding:0.65rem 0.9rem;
+  font-size:0.66rem !important;letter-spacing:0.13em !important;
+  text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,0.5);text-decoration:none;
+  white-space:nowrap;
+  transition:color 0.2s,background 0.2s;
+}
+.nav-dropdown a:hover{color:var(--white) !important;background:rgba(255,255,255,0.05);}
+.nav-dropdown-all{
+  margin-top:0.4rem;padding-top:0.85rem !important;
+  border-top:1px solid var(--border-dark);
+  color:var(--orange) !important;
+  font-weight:600 !important;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-dropdown-all::after{content:'→';margin-left:0.6rem;}
+
 /* hamburger */
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;z-index:600;}
 .hamburger svg line{stroke:var(--white);stroke-width:1.5;stroke-linecap:round;transition:transform 0.3s,opacity 0.25s;transform-origin:center;transform-box:fill-box;}
 .hamburger.open .bar1{transform:translateY(7px) rotate(45deg);}
 .hamburger.open .bar2{opacity:0;}
 .hamburger.open .bar3{transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s;overflow-y:auto;padding:3rem 1.5rem;}
 .mobile-menu.open{opacity:1;pointer-events:all;}
 .mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
 .mobile-menu a:hover,.mobile-menu a.active{color:var(--orange);}
 .mobile-menu a.mob-cta{font-size:1rem;letter-spacing:0.2em;background:var(--orange);color:var(--black);padding:1rem 3rem;margin-top:0.5rem;}
+
+/* mobile "Our Work" accordion */
+.mob-dropdown{display:flex;flex-direction:column;align-items:center;}
+.mob-link-row{display:flex;align-items:center;gap:0.9rem;}
+.mob-chevron-btn{background:none;border:none;cursor:pointer;padding:0.4rem;color:rgba(255,255,255,0.45);}
+.mob-chevron-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.3s;}
+.mob-chevron-btn.open svg{transform:rotate(180deg);}
+.mob-sublist{
+  display:flex;flex-direction:column;align-items:center;
+  max-height:0;overflow:hidden;opacity:0;gap:0;margin-top:0;
+  transition:max-height 0.35s ease,opacity 0.3s ease,gap 0.3s ease,margin-top 0.3s ease;
+}
+.mob-sublist.open{max-height:480px;opacity:1;gap:1.3rem;margin-top:1.6rem;}
+.mob-sublink{font-size:1.1rem !important;letter-spacing:0.04em;}
+.mob-sublink-all{color:var(--orange) !important;}
 
 /* ── HERO ── */
 #hero{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--black);}
@@ -432,7 +490,20 @@ footer{
     <img class="logo-ver" src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="42">
   </a>
   <ul class="nav-links">
-    <li><a href="#portfolio">Our Work</a></li>
+    <li class="nav-item">
+      <a href="#portfolio" class="nav-dropdown-trigger">
+        Our Work
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="nav-dropdown">
+        <a href="vehicle-wraps.html">Vehicle Wraps</a>
+        <a href="commercial-signage.html">Commercial Signage</a>
+        <a href="decal-packages.html">Decal Packages</a>
+        <a href="aviation-graphics.html">Aviation Graphics</a>
+        <a href="livery-graphics.html">Livery Graphics</a>
+        <a href="all-projects.html" class="nav-dropdown-all">All Projects</a>
+      </div>
+    </li>
     <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -445,7 +516,22 @@ footer{
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#portfolio" class="mob-link">Our Work</a>
+  <div class="mob-dropdown">
+    <div class="mob-link-row">
+      <a href="#portfolio" class="mob-link">Our Work</a>
+      <button class="mob-chevron-btn" id="mobChevronBtn" type="button" aria-label="Toggle categories">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </div>
+    <div class="mob-sublist" id="mobSublist">
+      <a href="vehicle-wraps.html" class="mob-link mob-sublink">Vehicle Wraps</a>
+      <a href="commercial-signage.html" class="mob-link mob-sublink">Commercial Signage</a>
+      <a href="decal-packages.html" class="mob-link mob-sublink">Decal Packages</a>
+      <a href="aviation-graphics.html" class="mob-link mob-sublink">Aviation Graphics</a>
+      <a href="livery-graphics.html" class="mob-link mob-sublink">Livery Graphics</a>
+      <a href="all-projects.html" class="mob-link mob-sublink mob-sublink-all">All Projects</a>
+    </div>
+  </div>
   <a href="#contact" class="mob-link mob-cta">Get a Quote</a>
 </div>
 
@@ -879,6 +965,16 @@ document.querySelectorAll('.mob-link').forEach(l => {
     document.body.style.overflow='';
   });
 });
+
+// ── MOBILE "OUR WORK" ACCORDION ──
+const mobChevronBtn = document.getElementById('mobChevronBtn');
+const mobSublist    = document.getElementById('mobSublist');
+if (mobChevronBtn && mobSublist) {
+  mobChevronBtn.addEventListener('click', () => {
+    mobChevronBtn.classList.toggle('open');
+    mobSublist.classList.toggle('open');
+  });
+}
 
 // ── NAV SHRINK ──
 window.addEventListener('scroll', () => {
