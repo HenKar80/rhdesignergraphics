@@ -59,6 +59,49 @@ nav.scrolled{padding:1rem 3.5rem;}
 }
 .nav-cta:hover{background:#c08500 !important;color:var(--black) !important;}
 
+/* nav dropdown — "Our Work" */
+.nav-item{position:relative;display:flex;align-items:center;}
+.nav-dropdown-trigger{
+  display:flex;align-items:center;gap:0.4rem;cursor:pointer;
+}
+.nav-dropdown-trigger svg{
+  width:8px;height:8px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  transition:transform 0.25s;
+}
+.nav-item:hover .nav-dropdown-trigger svg{transform:rotate(180deg);}
+.nav-dropdown{
+  position:absolute;top:100%;left:50%;
+  transform:translateX(-50%);
+  min-width:230px;
+  background:rgba(10,10,10,0.98);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--border-dark);
+  padding:0.7rem;
+  display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;
+  transition:opacity 0.2s ease;
+  z-index:501;
+}
+.nav-item:hover .nav-dropdown{opacity:1;visibility:visible;}
+.nav-dropdown a{
+  padding:0.65rem 0.9rem;
+  font-size:0.66rem !important;letter-spacing:0.13em !important;
+  text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,0.5);text-decoration:none;
+  white-space:nowrap;
+  transition:color 0.2s;
+}
+.nav-dropdown a:hover{color:var(--white) !important;}
+.nav-dropdown-all{
+  margin-top:0.4rem;padding-top:0.85rem !important;
+  border-top:1px solid var(--border-dark);
+  color:var(--orange) !important;
+  font-weight:600 !important;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-dropdown-all::after{content:'→';margin-left:0.6rem;}
+
 /* nav breadcrumb context (desktop) — sits below nav, flush right */
 .nav-context{
   position:fixed;top:73px;right:0;z-index:490;
@@ -368,7 +411,20 @@ footer{
     <img class="logo-ver" src="images/logo/logo-ver.svg" alt="RH Designer Graphics" height="58">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#portfolio">Our Work</a></li>
+    <li class="nav-item">
+      <a href="index.html#portfolio" class="nav-dropdown-trigger">
+        Our Work
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="nav-dropdown">
+        <a href="vehicle-wraps.html">Vehicle Wraps</a>
+        <a href="commercial-signage.html">Commercial Signage</a>
+        <a href="decal-packages.html">Decal Packages</a>
+        <a href="aviation-graphics.html">Aviation Graphics</a>
+        <a href="livery-graphics.html">Livery Graphics</a>
+        <a href="all-projects.html" class="nav-dropdown-all">All Projects</a>
+      </div>
+    </li>
     <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
   <!-- mobile: compact Our Work back link -->
