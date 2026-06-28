@@ -702,7 +702,7 @@ footer{
     <div class="reveal reveal-delay-2">
       <div class="c-detail">
         <span class="c-detail-label">Email</span>
-        <div class="c-detail-val"><a href="mailto:rhdesignergraphics@gmail.com" class="c-email-link">rhdesignergraphics@gmail.com</a></div>
+        <div class="c-detail-val"><a href="mailto:richard@rhdesignergraphics.com" class="c-email-link">richard@rhdesignergraphics.com</a></div>
       </div>
       <div class="c-detail">
         <span class="c-detail-label">Phone</span>
@@ -728,7 +728,11 @@ footer{
   </div>
 
   <div class="contact-form">
-    <form id="contactForm" action="#" method="POST">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="cbed6c28-5b04-4a78-a71f-88854fe4cf61">
+      <input type="hidden" name="subject" value="New Quote Request — RH Designer Graphics Website">
+      <input type="hidden" name="from_name" value="RH Designer Graphics Website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
         <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Alex" required></div>
         <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Johnson" required></div>
@@ -1061,13 +1065,32 @@ if(contactForm){
   contactForm.addEventListener('submit', async function(e){
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
+    const originalBtnText = btn.textContent;
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    // Replace action with Formspree endpoint when ready
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      formSuccess.style.display = 'block';
-    }, 800);
+
+    const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        contactForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = originalBtnText;
+      btn.disabled = false;
+      alert('Something went wrong sending your message. Please try again, or email us directly at richard@rhdesignergraphics.com.');
+    }
   });
 }
 </script>
